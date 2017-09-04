@@ -19,8 +19,9 @@ export class DialogDemoComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(MyDialogComponent, {
-      width: '600px',
-     
+      disableClose: false,
+      hasBackdrop: true,
+      width: '600px',     
     });
 
     dialogRef.afterClosed().subscribe(result => {
