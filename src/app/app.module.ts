@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import { NglModule } from 'ng-lightning/ng-lightning';
+
 
 import { MdButtonModule } from '@angular/material';
 import { MdDialogModule } from '@angular/material';
@@ -13,15 +13,19 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {GrowlModule} from 'primeng/primeng';
-import { InputTextModule, ButtonModule, DataTableModule, DialogModule }  from 'primeng/primeng';
-import { dialogBoxService,dialogComponent} from './dialogBox';
+import { InputTextModule, ButtonModule, DataTableModule, DialogModule}  from 'primeng/primeng';
+// import { dialogBoxService,dialogComponent} from './dialogBox';
+import {ConfirmDialogModule} from 'primeng/components/confirmdialog/confirmdialog';
+import {ConfirmationService} from 'primeng/components/common/api';
+
 @NgModule({
   declarations: [
     AppComponent,
     DialogDemoComponent,
     MyDialogComponent,
+
   
-    dialogComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { dialogBoxService,dialogComponent} from './dialogBox';
     InputTextModule, 
     DialogModule,
     ButtonModule,
+    ConfirmDialogModule
+
    
   ],
   entryComponents: [
@@ -43,7 +49,7 @@ import { dialogBoxService,dialogComponent} from './dialogBox';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  providers: [dialogBoxService],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
