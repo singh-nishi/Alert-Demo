@@ -1,30 +1,34 @@
 import { Component,OnInit,ViewChild } from '@angular/core';
-import { AlertService, AlertMessage } from './alert.service';
-import { Ng2DynamicDialogComponent } from 'ng2-dynamic-dialog';
+
+import {Message} from 'primeng/primeng';
+import { dialogBoxService} from './dialogBox';
 @Component({
    moduleId: module.id,
   selector: 'app-root',
+  
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  @ViewChild(Ng2DynamicDialogComponent)
-    private modalDialog: Ng2DynamicDialogComponent;
-  title = 'app';
-   objAlert: AlertMessage;
+export class AppComponent  {
 
-    constructor(
-        private alertService: AlertService) {
+ private title : string = 'dialogBox';
+  private displayDialog: boolean;
+  private header : string;
+  private messagebody : string;
+  
+  msgs: Message[] = [];
+    constructor(private dialogBoxservice : dialogBoxService) {
+            this.header = "Header Content from Component"
+            this.messagebody = "Message body from App Component"
     }
 
-    ngOnInit() {
-        this.alertService.alertStatus.subscribe((val: AlertMessage) => {
-            this.objAlert = { show: val.show, message: val.message };
-        });
-    }
-
-    onCloseAlert(reason: string) {
-        let objCloseAlert: AlertMessage = { show: false, message: '' };
-        this.alertService.showAlert(false, null);
-    }
+    
+  private showDialog() : void {  
+    this.dialogBoxservice.showDialog(this.header ,this.messagebody);
+  }
+   
+  showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info Message', detail:'PrimeNG rocks'});
+  }
 }

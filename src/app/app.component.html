@@ -1,12 +1,13 @@
 
-hii
-  <span class="slds-notify_container">
-     <ngl-notification *ngIf="objAlert.show" type="alert" severity="error" 
-     (nglNotificationClose)="onCloseAlert($event)" timeout="5000" 
-     class="slds-theme--alert-texture">
-          <h2>{{objAlert.message}}</h2>
-     </ngl-notification>
- </span>
+
+    <div style="text-align:center">
+    <!-- <h1>
+  <button type="button"  (click)="showInfo()">click to show msg</button></h1>
+    
+<p-growl [value]="msgs"></p-growl> -->
+<button type="button" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show">click</button>
+ <dialogBox></dialogBox> 
+</div>
 <br>
 <br>
 <div style="text-align:center">

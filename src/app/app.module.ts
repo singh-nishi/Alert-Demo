@@ -5,26 +5,36 @@ import { NglModule } from 'ng-lightning/ng-lightning';
 
 import { MdButtonModule } from '@angular/material';
 import { MdDialogModule } from '@angular/material';
-import { Ng2DynamicDialogModule }  from 'ng2-dynamic-dialog';
+
 import { AppComponent } from './app.component';
 import { DialogDemoComponent } from './dialog-demo/dialog-demo.component';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
-import { AlertService } from './alert.service';
-import { SearchMovieDetailComponent } from './search-movie-detail/search-movie-detail.component';
-import {Notification} from 'angular2-notifications';
+
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {GrowlModule} from 'primeng/primeng';
+import { InputTextModule, ButtonModule, DataTableModule, DialogModule }  from 'primeng/primeng';
+import { dialogBoxService,dialogComponent} from './dialogBox';
 @NgModule({
   declarations: [
     AppComponent,
     DialogDemoComponent,
     MyDialogComponent,
-    SearchMovieDetailComponent,
-    
+  
+    dialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MdButtonModule,
     MdDialogModule,
+    FormsModule,
+    HttpModule,
+    GrowlModule,
+    DataTableModule,
+    InputTextModule, 
+    DialogModule,
+    ButtonModule,
    
   ],
   entryComponents: [
@@ -33,7 +43,7 @@ import {Notification} from 'angular2-notifications';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  providers: [AlertService],
+  providers: [dialogBoxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
