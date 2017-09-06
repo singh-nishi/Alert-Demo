@@ -1,6 +1,8 @@
 import { Component,OnInit,ViewChild,ViewEncapsulation } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Message} from 'primeng/primeng';
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 // import { dialogBoxService} from './dialogBox';
 import {ConfirmationService} from "primeng/components/common/api";
 @Component({
